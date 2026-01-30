@@ -20,7 +20,7 @@ import com.patrick.manajemenstok.service.ServiceBarang;
 @RestController
 @RequestMapping("/barang")
 public class ControllerBarang {
-    ServiceBarang serviceBarang;
+    private ServiceBarang serviceBarang;
 
     public ControllerBarang(ServiceBarang serviceBarang){
         this.serviceBarang = serviceBarang;

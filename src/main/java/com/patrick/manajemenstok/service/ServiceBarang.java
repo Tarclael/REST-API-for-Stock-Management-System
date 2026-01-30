@@ -9,7 +9,7 @@ import com.patrick.manajemenstok.repository.RepositoriBarang;
 
 @Service
 public class ServiceBarang {
-    RepositoriBarang repositoriBarang;
+    private RepositoriBarang repositoriBarang;
 
     public ServiceBarang(RepositoriBarang repositoriBarang){
         this.repositoriBarang = repositoriBarang;
