@@ -18,6 +18,8 @@ public class Barang {
     @Column(nullable = false)
     private int stokBarang;
 
+    public Barang(){}
+
     public Barang(String namaBarang, int stokBarang){
         this.namaBarang = namaBarang;
         this.stokBarang = stokBarang;
