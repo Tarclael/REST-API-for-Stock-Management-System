@@ -19,9 +19,11 @@ public class ServiceTransaksiBarang {
     }
 
     public TransaksiBarang buatTransaksiBarang(long idBarang, JenisTransaksi jenisTransaksi, Integer jumlah){
+        System.out.println("id barang masuk: " + idBarang);
         Barang barang = repositoriBarang.findById(idBarang).orElseThrow(() -> new RuntimeException("Barang tidak ditemukan"));
 
         if(jumlah <= 0) throw new RuntimeException("Jumlah barang harus lebih dari 0!");
+
 
         if(jenisTransaksi == JenisTransaksi.KELUAR){
             if(barang.getStokBarang() < jumlah){

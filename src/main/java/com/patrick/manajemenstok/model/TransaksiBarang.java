@@ -18,7 +18,7 @@ import jakarta.persistence.Table;
 public class TransaksiBarang {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private long IdTransaksi;
 
     @ManyToOne
     @JoinColumn(name = "id", nullable = false)
@@ -39,7 +39,7 @@ public class TransaksiBarang {
         this.jumlah = jumlah;
     }
 
-    public long getIdTransaksi(){return id;}
+    public long getIdTransaksi(){return IdTransaksi;}
 
     public Barang getBarang(){return barang;}
     public void setBarang(Barang barang){this.barang = barang;}
