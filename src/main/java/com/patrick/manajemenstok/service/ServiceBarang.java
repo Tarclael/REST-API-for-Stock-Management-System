@@ -23,7 +23,35 @@ public class ServiceBarang {
         return repositoriBarang.findById(id).orElseThrow(() -> new RuntimeException("Barang tidak ditemukan"));
     }
 
-    public Barang saveBarang(Barang barang){
+    public List<Barang> saveBarang(List<Barang> listBarang){
+        return repositoriBarang.saveAll(listBarang);
+    }
+
+    public Barang updateBarang(long id, Barang barangBaru){
+        Barang barang = repositoriBarang.findById(id).orElseThrow(() -> new RuntimeException("Barang tidak ditemukan"));
+
+        barang.setNamaBarang(barangBaru.getNamaBarang());
+        barang.setStokBarang(barangBaru.getStokBarang());
+
         return repositoriBarang.save(barang);
+    }
+
+    public Barang patchBarang(long id, Barang barangBaru){
+        Barang barang = repositoriBarang.findById(id).orElseThrow(() -> new RuntimeException("Barang tidak ditemukan"));
+
+        if(barangBaru.getNamaBarang() != null){
+            barang.setNamaBarang(barangBaru.getNamaBarang());
+        }
+
+        if(barangBaru.getStokBarang() != null){
+            barang.setStokBarang(barangBaru.getStokBarang());
+        }
+        return repositoriBarang.save(barang);
+    }
+
+    public void hapusBarang(long id){
+        Barang barang = repositoriBarang.findById(id).orElseThrow(() -> new RuntimeException("Barang tidak ditemukan"));
+
+        repositoriBarang.delete(barang);
     }
 }

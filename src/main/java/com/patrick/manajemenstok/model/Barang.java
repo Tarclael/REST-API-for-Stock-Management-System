@@ -16,21 +16,20 @@ public class Barang {
     @Column(nullable = false)
     private String namaBarang;
     @Column(nullable = false)
-    private int stokBarang;
+    private Integer stokBarang;
 
     public Barang(){}
 
-    public Barang(String namaBarang, int stokBarang){
+    public Barang(String namaBarang, Integer stokBarang){
         this.namaBarang = namaBarang;
         this.stokBarang = stokBarang;
     }
 
     public long getId(){return id;}
-    public void setId(long id){this.id = id;}
 
     public String getNamaBarang(){return namaBarang;}
     public void setNamaBarang(String namaBarang){this.namaBarang = namaBarang;}
 
-    public int getStokBarang(){return stokBarang;}
-    public void setStokBarang(int stokBarang){this.stokBarang = stokBarang;}
+    public Integer getStokBarang(){return stokBarang;}
+    public void setStokBarang(Integer stokBarang){this.stokBarang = stokBarang;}
 }

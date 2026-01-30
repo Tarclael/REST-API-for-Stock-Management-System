@@ -3,9 +3,12 @@ package com.patrick.manajemenstok.controller;
 import java.util.List;
 
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -35,7 +38,22 @@ public class ControllerBarang {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Barang buatBarang(@RequestBody Barang barang){
-        return serviceBarang.saveBarang(barang);
+    public List<Barang> buatBarang(@RequestBody List<Barang> daftarBarang){
+        return serviceBarang.saveBarang(daftarBarang);
+    }
+
+    @PutMapping("/id/{id}")
+    public Barang updateBarang(@PathVariable long id, @RequestBody Barang barang){
+        return serviceBarang.updateBarang(id, barang);
+    }
+
+    @PatchMapping("/id/{id}")
+    public Barang patchBarang(@PathVariable long id, @RequestBody Barang barang){
+        return serviceBarang.patchBarang(id, barang);
+    }
+
+    @DeleteMapping("/id/{id}")
+    public void hapusBarang(@PathVariable long id){
+        serviceBarang.hapusBarang(id);
     }
 }
